@@ -22,4 +22,4 @@ class User:
     def from_file(self, file):
         with open(file) as f:
             temp = json.load(f)
-            return self.from_dict(self, temp)
+            return self.from_dict(temp)

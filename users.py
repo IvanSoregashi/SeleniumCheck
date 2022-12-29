@@ -2,22 +2,18 @@ import json
 
 
 class User:
+    def __init__(self, email='email', name='name', password='password'):
+        self.email = email
+        self.name = name
+        self.password = password
 
-    def __init__(self, dct):
+    def from_dict(self, dct):
         self.email = dct['email']
         self.name = dct['name']
         self.password = dct['password']
 
     def mult(self, n):
-        return [
-            User(
-                # self.email[:self.email.find('@')] + str(i) + self.email[self.email.find('@'):],
-                {'email': str(i) + self.email,
-                 "name": self.name + str(i),
-                 "password": self.password}
-            )
-            for i in range(n)
-        ]
+        return [User(str(i) + self.email, self.name + str(i), self.password) for i in range(n)]
 
     def __str__(self):
         return '{' + f'"email":"{self.email}","name":"{self.name}","password":"{self.password}"' + '}'
@@ -25,9 +21,7 @@ class User:
     def to_dict(self):
         return {'email': self.email, 'name': self.name, 'password': self.password}
 
-    @staticmethod
-    def dict_from_json_file(file):
+    def from_file(self, file):
         with open(file) as f:
             temp = json.load(f)
-            print(temp)
-            return temp
+            return self.from_dict(self, temp)

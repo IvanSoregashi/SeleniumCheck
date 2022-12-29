@@ -2,7 +2,7 @@ import json
 
 
 class User:
-    def __init__(self, email='email', name='name', password='password'):
+    def __init__(self, email='email@email.com', name='name', password='password'):
         self.email = email
         self.name = name
         self.password = password

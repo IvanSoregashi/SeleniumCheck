@@ -8,9 +8,7 @@ class User:
         self.password = password
 
     def from_dict(self, dct):
-        self.email = dct['email']
-        self.name = dct['name']
-        self.password = dct['password']
+        return self.__init__(self, dct['email'], dct['name'], dct['password'])
 
     def mult(self, n):
         return [User(str(i) + self.email, self.name + str(i), self.password) for i in range(n)]

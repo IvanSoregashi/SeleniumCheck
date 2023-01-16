@@ -1,5 +1,5 @@
-from requests import request
 import json
+from requests import request
 from users import User
 
 
@@ -54,7 +54,7 @@ class Req:
 
 r = Req()
 usr = User()
-usr.from_file('users.json')
+usr.from_file('user.json')
 resp = r.do_register(usr)
 print(resp.text)
 print(resp.content)

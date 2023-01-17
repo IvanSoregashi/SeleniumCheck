@@ -1,17 +1,15 @@
 import time
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium_base import *
 
 PATH = 'C:/Program Files (x86)/chromedriver.exe'
-driver = webdriver.Chrome(PATH)
-TEST_SITE = 'http://users.bugred.ru/'
+driver = webdriver.Chrome(service=Service(PATH))
 
-SB = SeleniumBase(driver)
+US = UsersBugred(driver)
 
-SB.driver.get(TEST_SITE)
-
-for cell in result_page:
+for cell in US.search_email('test'):
     print(cell.text)
 
 time.sleep(1)

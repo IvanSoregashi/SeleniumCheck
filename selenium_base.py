@@ -23,7 +23,9 @@ class UsersBugred(SeleniumBase):
 
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver.get(self.URI)
 
-# search_bar = SB.visible_element((By.NAME, 'q'))
-# search_bar.send_keys('test', Keys.RETURN)
-# result_page = SB.visible_elements((By.CSS_SELECTOR, '.ajax_load_row>tr>td:first-child'))
+    def search_email(self, query):
+        search_bar = self.visible_element((By.NAME, 'q'))
+        search_bar.send_keys(query, Keys.RETURN)
+        return self.visible_elements((By.CSS_SELECTOR, '.ajax_load_row>tr>td:first-child'))

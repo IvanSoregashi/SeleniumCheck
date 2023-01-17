@@ -17,15 +17,15 @@ class Req:
 
     def create_user(self):
         url = "http://users.bugred.ru/tasks/rest/createuser"
-        payload = json.dumps({"email": "dododo@mail.ru", "name": "Stefan", "companies": [10], "tasks": [12]})
+        payload = json.dumps({'email': '', 'name': '', 'companies': [], 'tasks': []})
         headers = {'Content-Type': 'application/json'}
         response = request("POST", url, headers=headers, data=payload)
         return response.text
 
     def create_company(self):
         url = "http://users.bugred.ru/tasks/rest/createcompany"
-        payload = {'company_name': 'zaraaa', 'company_type': 'ООО',
-                   'company_users': '["elena345@mail.ru", "day234@mail.ru"]', 'email_owner': 'alyona111@mail.ru'}
+        payload = {'company_name': '', 'company_type': '',
+                   'company_users': '["@mail.ru", "@mail.ru"]', 'email_owner': '@mail.ru'}
         files = []
         headers = {}
         response = request("POST", url, headers=headers, data=payload, files=files)
@@ -34,16 +34,16 @@ class Req:
     def create_user_with_tasks(self):
         url = "http://users.bugred.ru/tasks/rest/createuserwithtasks"
         payload = json.dumps({
-            "email": "ghilbertt@mail.ru",
-            "name": "Elina",
+            "email": "@mail.ru",
+            "name": "",
             "tasks": [
                 {
-                    "title": "Первая задача",
-                    "description": "Первая задача 11"
+                    "title": "first",
+                    "description": ""
                 },
                 {
-                    "title": "Вторая задача",
-                    "description": "Вторая задача 11"
+                    "title": "second",
+                    "description": ""
                 }
             ]
         })

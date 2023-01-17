@@ -9,7 +9,7 @@ driver = webdriver.Chrome(service=Service(PATH))
 
 US = UsersBugred(driver)
 
-for cell in US.search_email('test'):
+for cell in US.search('test'):
     print(cell.text)
 
 time.sleep(1)

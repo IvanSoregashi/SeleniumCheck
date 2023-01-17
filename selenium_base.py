@@ -19,13 +19,13 @@ class SeleniumBase:
 
 
 class UsersBugred(SeleniumBase):
-    URI = 'http://users.bugred.ru/'
+    _URI = 'http://users.bugred.ru/'
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(self.URI)
+        self.driver.get(self._URI)
 
-    def search_email(self, query):
+    def search(self, query):
         search_bar = self.visible_element((By.NAME, 'q'))
         search_bar.send_keys(query, Keys.RETURN)
         return self.visible_elements((By.CSS_SELECTOR, '.ajax_load_row>tr>td:first-child'))

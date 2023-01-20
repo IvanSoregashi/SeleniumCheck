@@ -9,6 +9,10 @@ class Req:
         url = f"http://users.bugred.ru/tasks/rest/getuser?email={email}"
         return request("POST", url)
 
+    def get_user_full(self, email='email@email.com'):
+        url = f"http://users.bugred.ru/tasks/rest/getuserfull?email={email}"
+        return request("POST", url)
+
     def delete_user(self, email='email@email.com'):
         url = f"http://users.bugred.ru/tasks/rest/deleteuser?email={email}"
         return request("POST", url)
@@ -34,6 +38,10 @@ class Req:
         headers = {}
         response = request("POST", url, headers=headers, data=payload, files=files)
         return response.text
+
+    def get_company(self, idc='0'):
+        url = f"http://users.bugred.ru/tasks/rest/getcompany?id_company={idc}"
+        return request("POST", url)
 
     def create_user_with_tasks(self):
         url = "http://users.bugred.ru/tasks/rest/createuserwithtasks"

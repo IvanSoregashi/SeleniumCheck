@@ -29,3 +29,7 @@ class UsersBugred(SeleniumBase):
         search_bar = self.visible_element((By.NAME, 'q'))
         search_bar.send_keys(query, Keys.RETURN)
         return self.visible_elements((By.CSS_SELECTOR, '.ajax_load_row>tr>td:first-child'))
+
+    def press_first_watch_button(self):
+        button = self.visible_element((By.CSS_SELECTOR, '.btn-success'))
+        button.click()

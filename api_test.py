@@ -9,6 +9,10 @@ class Req:
         url = f"http://users.bugred.ru/tasks/rest/getuser?email={email}"
         return request("POST", url)
 
+    def delete_user(self, email='email@email.com'):
+        url = f"http://users.bugred.ru/tasks/rest/deleteuser?email={email}"
+        return request("POST", url)
+
     def do_register(self, user=User()):
         url = "http://users.bugred.ru/tasks/rest/doregister"
         payload = json.dumps(user.to_dict())
@@ -55,7 +59,7 @@ class Req:
 r = Req()
 usr = User()
 usr.from_file('user.json')
-resp = r.do_register(usr)
-print(resp.text)
-print(resp.content)
+resp = r.delete_user('as_test683@mail.ru')
+# print(resp.text)
+# print(resp.content)
 print(resp.content.decode('unicode-escape'))
